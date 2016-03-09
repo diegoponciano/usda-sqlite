@@ -11,6 +11,8 @@ echo "Normalizing data..."
 perl -pi -e s,~,,g data/*.txt
 # Replace micro symbol to ASCII
 perl -C1 -i -pe 's/\x{00B5}/mc/' data/NUTR_DEF.txt
+perl -C1 -i -pe "s/[\x91\x92]/'/g" data/*.txt
+perl -C1 -i -pe 's/[\x93\x94]/"/g' data/*.txt
 
 echo "Loading food group..."
 sqlite3 $1 < load_food_group.sql
