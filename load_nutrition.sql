@@ -7,7 +7,7 @@ CREATE TABLE `nutrition` (
   std_error float,
   source_code text NOT NULL,
   derivation_code text,
-  reference_food_id REFERENCES food(id),
+  reference_food_id int REFERENCES food(id),
   added_nutrient text,
   num_studients int,
   min float,
